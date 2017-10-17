@@ -55,7 +55,7 @@ df.T2010$Resp = as.character(1:9)
 
 # maak plaatje
 p <- ggplot(df.T2010, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point()
+p <- p + geom_point(size = 3)
 p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
 p <- p + theme_bw()
 p <- p + coord_cartesian(ylim = c(0,10))
@@ -71,7 +71,7 @@ df.TCRE$Resp = as.character(1:9)
 
 # maak plaatje
 p <- ggplot(df.TCRE, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point()
+p <- p + geom_point(size = 3)
 p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
 p <- p + theme_bw()
 p <- p + coord_cartesian(ylim = c(0,10))
@@ -87,7 +87,7 @@ df.FnonCO2$Resp = as.character(1:9)
 
 # maak plaatje
 p <- ggplot(df.FnonCO2, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point()
+p <- p + geom_point(size = 3)
 p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
 p <- p + theme_bw()
 p <- p + coord_cartesian(ylim = c(0,10))
@@ -103,7 +103,7 @@ df.Costs$Resp = as.character(1:9)
 
 # maak plaatje
 p <- ggplot(df.Costs, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point()
+p <- p + geom_point(size = 3)
 p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
 p <- p + theme_bw()
 p <- p + coord_cartesian(ylim = c(0,10))
@@ -119,7 +119,7 @@ df.Other$Resp = as.character(1:9)
 
 # maak plaatje
 p <- ggplot(df.Other, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point()
+p <- p + geom_point(size = 3)
 p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
 p <- p + theme_bw()
 p <- p + coord_cartesian(ylim = c(0,10))
@@ -135,7 +135,7 @@ df.Red.T2010$Resp = as.character(1:9)
 
 # maak plaatje
 p <- ggplot(df.Red.T2010, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point()
+p <- p + geom_point(size = 3)
 p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
 p <- p + theme_bw()
 p <- p + coord_cartesian(ylim = c(0,10))
@@ -151,7 +151,7 @@ df.Red.TCRE$Resp = as.character(1:9)
 
 # maak plaatje
 p <- ggplot(df.Red.TCRE, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point()
+p <- p + geom_point(size = 3)
 p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
 p <- p + theme_bw()
 p <- p + coord_cartesian(ylim = c(0,10))
@@ -167,7 +167,7 @@ df.Red.FnonCO2$Resp = as.character(1:9)
 
 # maak plaatje
 p <- ggplot(df.Red.FnonCO2, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point()
+p <- p + geom_point(size = 3)
 p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
 p <- p + theme_bw()
 p <- p + coord_cartesian(ylim = c(0,10))
@@ -183,7 +183,7 @@ df.Red.Costs$Resp = as.character(1:9)
 
 # maak plaatje
 p <- ggplot(df.Red.Costs, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point()
+p <- p + geom_point(size = 3)
 p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
 p <- p + theme_bw()
 p <- p + coord_cartesian(ylim = c(0,10))
@@ -199,7 +199,7 @@ df.Red.Other$Resp = as.character(1:9)
 
 # maak plaatje
 p <- ggplot(df.Red.Other, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point()
+p <- p + geom_point(size = 3)
 p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
 p <- p + theme_bw()
 p <- p + coord_cartesian(ylim = c(0,10))
@@ -207,66 +207,7 @@ p <- p + ggtitle("Reduction in uncertainty of Other")
 p
 
 
-require(reshape2)
 
-AR5bakjes.melt <- melt(AR5bakjes ,  id.vars = 'deltaCO2', variable.name = 'minmedmax')
-SSPbakjes.melt <- melt(SSPbakjes ,  id.vars = 'deltaCO2', variable.name = 'minmedmax')
-
-ggplot(AR5bakjes.melt, aes(deltaCO2,value)) + geom_line(aes(colour = minmedmax))
-ggplot(SSPbakjes.melt, aes(deltaCO2,value)) + geom_line(aes(colour = minmedmax))
-
-
-AR5_SSPbakjes <- rbind(AR5bakjes, SSPbakjes)
-
-
-
-
-# plot ze beide in 1
-
-AR5bakjes.melt$group <- "AR5"
-SSPbakjes.melt$group <- "SSP"
-
-AR5_SSPbakjes.melt <- rbind(AR5bakjes.melt, SSPbakjes.melt)
-
-p <- ggplot(AR5_SSPbakjes.melt, aes(x=deltaCO2, y=value, group=interaction(minmedmax,group), colour=group, shape=minmedmax)) #col=interaction(minmedmax,group)
-p <- p + geom_point()
-p <- p + geom_line() #aes(x=deltaCO2, y=value, group=minmedmax, colour = minmedmax)
-#p <- p + geom_smooth(size=1)
-p
   
   
   
-
-# krijgt een CC matrix
-s.seed <- 21
-CCmat <- f.costs.CCmatrix(N,s.seed)
-CCdata = data.table(CCmat[[1]])
-# maak er een 'werkbaarder' format van
-CC <-gather(CCdata,variable,value,c('T2010','TCRE','nonCO2','cumuCO2result','sampletrans01'))
-CC=data.table(CC)
-CC$Ttarget <- as.character(seq(1.4, 3.4, by = 0.1))
-
-# plotting (probeersel) staven naast elkaar
-p = ggplot(CC[variable %in% c('T2010','TCRE','nonCO2','cumuCO2result','sampletrans01')])
-p = p + geom_bar(aes(x=Ttarget,y=value,fill=variable),stat="identity",position="dodge") #position="dodge"
-p = p + theme_bw()# + theme(axis.text.x=element_text(size=12))
-p = p + scale_fill_manual(values=c("cumuCO2result"="dark blue","cs"="dark red","T2010"="black","TCRE"="green", "nonCO2"="blue", "sampletrans01"="orange"))
-p = p + ggtitle("CC values (Pearson) for costs, SSP-data")
-p
-# ggsave(paste("CC_GE_lin.png"),p)
-
-
-
-
-s <- ggplot(kostenSSP.gather[variable %in% c('Cost.Estimate..ktrillion.','MAC.Costs..ktrillion.','Consumption.Loss..ktrillion.')])
-s = s + geom_point(aes(x=cumuCO2,y=value, col=variable),stat="identity")
-s = s + theme_bw()
-s = s + scale_color_manual(values=c("Cost.Estimate..ktrillion."="blue","MAC.Costs..ktrillion."="green", "Consumption.Loss..ktrillion."="red"),
-                           #s = s + scale_shape_manual(values=c("tempStijging_door_F_nonCO2"=1,"tempStijging_door_F_nonCO2.met.avg"=4), #if you want shapes
-                           labels=c("Carbon price total costs","Area under MAC curve","Consumption loss"))
-s = s + guides(col=guide_legend(title=NULL))
-s = s + theme(legend.justification=c(0.9,0.65), legend.position=c(0.9,0.65), 
-              legend.text = element_text(size = 12))
-s = s + labs(x = expression(Cumulative~carbon~emissions~(2010-2100)~(TtCO[2])), y = "Mitigation costs (Ktrillion US$2005)")
-s = s + coord_cartesian(xlim = c(0,5), ylim = c(0,0.25))
-s
