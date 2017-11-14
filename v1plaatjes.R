@@ -17,6 +17,8 @@ library(tidyr)
 library(dplyr)
 require(reshape2)
 
+source("~/disks/y/ontwapps/Timer/Users/Stijn/Model/enquete/multiplot.R")
+
 setwd("~/disks/y/ontwapps/Timer/Users/Stijn/Expert elicitation/Responses/Enquetev1")
 
 
@@ -54,13 +56,15 @@ df.T2010$WG = as.character(T2010$WG)
 df.T2010$Resp = as.character(1:9)
 
 # maak plaatje
-p <- ggplot(df.T2010, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point(size = 3)
-p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
-p <- p + theme_bw()
-p <- p + coord_cartesian(ylim = c(0,10))
-p <- p + ggtitle("T2010")
-p
+p2010 <- ggplot(df.T2010, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
+p2010 <- p2010 + theme_bw()
+p2010 <- p2010 + geom_point(size = 5)
+p2010 <- p2010 + scale_shape_manual(values=c(49, 50, 51))
+p2010 <- p2010 + theme(legend.position="none")
+p2010 <- p2010 + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
+p2010 <- p2010 + coord_cartesian(ylim = c(0,10))
+p2010 <- p2010 + ggtitle("T2010")
+p2010
 
 
 #TCRE
@@ -70,13 +74,15 @@ df.TCRE$WG = as.character(TCRE$WG)
 df.TCRE$Resp = as.character(1:9)
 
 # maak plaatje
-p <- ggplot(df.TCRE, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point(size = 3)
-p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
-p <- p + theme_bw()
-p <- p + coord_cartesian(ylim = c(0,10))
-p <- p + ggtitle("TCRE")
-p
+pTCRE <- ggplot(df.TCRE, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
+pTCRE <- pTCRE + theme_bw()
+pTCRE <- pTCRE + geom_point(size = 5)
+pTCRE <- pTCRE + scale_shape_manual(values=c(49, 50, 51))
+pTCRE <- pTCRE + theme(legend.position="none")
+pTCRE <- pTCRE + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
+pTCRE <- pTCRE + coord_cartesian(ylim = c(0,10))
+pTCRE <- pTCRE + ggtitle("TCRE")
+pTCRE
 
 
 #FnonCO2
@@ -86,13 +92,15 @@ df.FnonCO2$WG = as.character(FnonCO2$WG)
 df.FnonCO2$Resp = as.character(1:9)
 
 # maak plaatje
-p <- ggplot(df.FnonCO2, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point(size = 3)
-p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
-p <- p + theme_bw()
-p <- p + coord_cartesian(ylim = c(0,10))
-p <- p + ggtitle("FnonCO2")
-p
+pFnonCO2 <- ggplot(df.FnonCO2, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
+pFnonCO2 <- pFnonCO2 + theme_bw()
+pFnonCO2 <- pFnonCO2 + geom_point(size = 5)
+pFnonCO2 <- pFnonCO2 + scale_shape_manual(values=c(49, 50, 51))
+pFnonCO2 <- pFnonCO2 + theme(legend.position="none")
+pFnonCO2 <- pFnonCO2 + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
+pFnonCO2 <- pFnonCO2 + coord_cartesian(ylim = c(0,10))
+pFnonCO2 <- pFnonCO2 + ggtitle("FnonCO2")
+pFnonCO2
 
 
 #Costs
@@ -102,13 +110,15 @@ df.Costs$WG = as.character(Costs$WG)
 df.Costs$Resp = as.character(1:9)
 
 # maak plaatje
-p <- ggplot(df.Costs, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point(size = 3)
-p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
-p <- p + theme_bw()
-p <- p + coord_cartesian(ylim = c(0,10))
-p <- p + ggtitle("Costs")
-p
+pCosts <- ggplot(df.Costs, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
+pCosts <- pCosts + theme_bw()
+pCosts <- pCosts + geom_point(size = 5)
+pCosts <- pCosts + scale_shape_manual(values=c(49, 50, 51))
+pCosts <- pCosts + theme(legend.position="none")
+pCosts <- pCosts + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
+pCosts <- pCosts + coord_cartesian(ylim = c(0,10))
+pCosts <- pCosts + ggtitle("Costs")
+pCosts
 
 
 #Other
@@ -118,13 +128,15 @@ df.Other$WG = as.character(Other$WG)
 df.Other$Resp = as.character(1:9)
 
 # maak plaatje
-p <- ggplot(df.Other, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point(size = 3)
-p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
-p <- p + theme_bw()
-p <- p + coord_cartesian(ylim = c(0,10))
-p <- p + ggtitle("Other")
-p
+pOther <- ggplot(df.Other, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
+pOther <- pOther + theme_bw()
+pOther <- pOther + geom_point(size = 5)
+pOther <- pOther + scale_shape_manual(values=c(49, 50, 51))
+pOther <- pOther + theme(legend.position="none")
+pOther <- pOther + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
+pOther <- pOther + coord_cartesian(ylim = c(0,10))
+pOther <- pOther + ggtitle("Other")
+pOther
 
 
 #Red.T2010
@@ -134,13 +146,15 @@ df.Red.T2010$WG = as.character(Red.T2010$WG)
 df.Red.T2010$Resp = as.character(1:9)
 
 # maak plaatje
-p <- ggplot(df.Red.T2010, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point(size = 3)
-p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
-p <- p + theme_bw()
-p <- p + coord_cartesian(ylim = c(0,10))
-p <- p + ggtitle("Reduction in uncertainty of T2010")
-p
+pRT2010 <- ggplot(df.Red.T2010, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
+pRT2010 <- pRT2010 + theme_bw()
+pRT2010 <- pRT2010 + geom_point(size = 5)
+pRT2010 <- pRT2010 + scale_shape_manual(values=c(49, 50, 51))
+pRT2010 <- pRT2010 + theme(legend.position="none")
+pRT2010 <- pRT2010 + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
+pRT2010 <- pRT2010 + coord_cartesian(ylim = c(0,10))
+pRT2010 <- pRT2010 + ggtitle("T2010")
+pRT2010
 
 
 #Red.TCRE
@@ -150,13 +164,15 @@ df.Red.TCRE$WG = as.character(Red.TCRE$WG)
 df.Red.TCRE$Resp = as.character(1:9)
 
 # maak plaatje
-p <- ggplot(df.Red.TCRE, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point(size = 3)
-p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
-p <- p + theme_bw()
-p <- p + coord_cartesian(ylim = c(0,10))
-p <- p + ggtitle("Reduction in uncertainty of TCRE")
-p
+pRTCRE <- ggplot(df.Red.TCRE, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
+pRTCRE <- pRTCRE + theme_bw()
+pRTCRE <- pRTCRE + geom_point(size = 5)
+pRTCRE <- pRTCRE + scale_shape_manual(values=c(49, 50, 51))
+pRTCRE <- pRTCRE + theme(legend.position="none")
+pRTCRE <- pRTCRE + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
+pRTCRE <- pRTCRE + coord_cartesian(ylim = c(0,10))
+pRTCRE <- pRTCRE + ggtitle("TCRE")
+pRTCRE
 
 
 #Red.FnonCO2
@@ -166,13 +182,15 @@ df.Red.FnonCO2$WG = as.character(Red.FnonCO2$WG)
 df.Red.FnonCO2$Resp = as.character(1:9)
 
 # maak plaatje
-p <- ggplot(df.Red.FnonCO2, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point(size = 3)
-p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
-p <- p + theme_bw()
-p <- p + coord_cartesian(ylim = c(0,10))
-p <- p + ggtitle("Reduction in uncertainty of FnonCO2")
-p
+pRTFnonCO2 <- ggplot(df.Red.FnonCO2, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
+pRTFnonCO2 <- pRTFnonCO2 + theme_bw()
+pRTFnonCO2 <- pRTFnonCO2 + geom_point(size = 5)
+pRTFnonCO2 <- pRTFnonCO2 + scale_shape_manual(values=c(49, 50, 51))
+pRTFnonCO2 <- pRTFnonCO2 + theme(legend.position="none")
+pRTFnonCO2 <- pRTFnonCO2 + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
+pRTFnonCO2 <- pRTFnonCO2 + coord_cartesian(ylim = c(0,10))
+pRTFnonCO2 <- pRTFnonCO2 + ggtitle("FnonCO2")
+pRTFnonCO2
 
 
 #Red.Costs
@@ -182,13 +200,15 @@ df.Red.Costs$WG = as.character(Red.Costs$WG)
 df.Red.Costs$Resp = as.character(1:9)
 
 # maak plaatje
-p <- ggplot(df.Red.Costs, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point(size = 3)
-p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
-p <- p + theme_bw()
-p <- p + coord_cartesian(ylim = c(0,10))
-p <- p + ggtitle("Reduction in uncertainty of Costs")
-p
+pRCosts <- ggplot(df.Red.Costs, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
+pRCosts <- pRCosts + theme_bw()
+pRCosts <- pRCosts + geom_point(size = 5)
+pRCosts <- pRCosts + scale_shape_manual(values=c(49, 50, 51))
+pRCosts <- pRCosts + theme(legend.position="none")
+pRCosts <- pRCosts + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
+pRCosts <- pRCosts + coord_cartesian(ylim = c(0,10))
+pRCosts <- pRCosts + ggtitle("Costs")
+pRCosts
 
 
 #Red.Other
@@ -198,16 +218,22 @@ df.Red.Other$WG = as.character(Red.Other$WG)
 df.Red.Other$Resp = as.character(1:9)
 
 # maak plaatje
-p <- ggplot(df.Red.Other, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
-p <- p + geom_point(size = 3)
-p <- p + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
-p <- p + theme_bw()
-p <- p + coord_cartesian(ylim = c(0,10))
-p <- p + ggtitle("Reduction in uncertainty of Other")
-p
+pROther <- ggplot(df.Red.Other, aes(x=Ttarget, y=value, color=Resp, group=Resp, shape=WG)) #col=interaction(minmedmax,group)
+pROther <- pROther + theme_bw()
+pROther <- pROther + geom_point(size = 5)
+pROther <- pROther + scale_shape_manual(values=c(49, 50, 51))
+pROther <- pROther + theme(legend.position="none")
+pROther <- pROther + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
+pROther <- pROther + coord_cartesian(ylim = c(0,10))
+pROther <- pROther + ggtitle("Other")
+pROther
+
+#3x2
+multiplot(p2010, pTCRE, pFnonCO2, pCosts, pOther,cols=2) #layout = matrix(c(1,4,7,10,2,5,8,11,3,6,9,12),
+#2x3
+multiplot(p2010, pTCRE, pFnonCO2, pCosts, pOther,cols=3,layout = matrix(c(1,4,2,5,3,6),nrow=2)) #layout = matrix(c(1,4,7,10,2,5,8,11,3,6,9,12),
+
+#3x2 red
+multiplot(pRT2010, pRTCRE, pRTFnonCO2, pRCosts, pROther,cols=3,layout = matrix(c(1,4,2,5,3,6),nrow=2)) #layout = matrix(c(1,4,7,10,2,5,8,11,3,6,9,12),
 
 
-
-  
-  
-  
