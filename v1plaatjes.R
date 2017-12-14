@@ -117,7 +117,7 @@ pCosts <- pCosts + scale_shape_manual(values=c(49, 50, 51))
 pCosts <- pCosts + theme(legend.position="none")
 pCosts <- pCosts + geom_line() # aes(x=Ttarget, y=value, group=, colour = minmedmax)
 pCosts <- pCosts + coord_cartesian(ylim = c(0,10))
-pCosts <- pCosts + ggtitle("Costs")
+pCosts <- pCosts + ggtitle("t")
 pCosts
 
 
